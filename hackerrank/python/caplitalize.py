@@ -6,13 +6,13 @@ You are asked to ensure that the first and last names of people begin with a cap
 
 def capitalize(str):
     seprate = str.split(" ")
-
     for index, word in enumerate(seprate):
-        word = word[0].upper() + word[1:]
+        if (word != ''):
+            word = word[0].upper() + word[1:]
         seprate[index] = word
 
-    print(" ".join(seprate))
+    return " ".join(seprate)
 
 
-capitalize("alison heck")
-capitalize("chris alan")
+print(capitalize("hello   world  lol"))
+# capitalize("chris alan")

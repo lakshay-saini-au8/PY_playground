@@ -25,9 +25,13 @@ Upward centered (Eg: n=3)
 # question 3
 '''
 Kaju Katli (For odd I/P only)(Eg:n=3)
-     *
-    * *
-   * * *
-    * *
-     *
+----*----
+--*-*-*--
+*-*-*-*-*
+--*-*-*--
+----*----
 '''
+
+
+# def starPatter():
+#      for i in range(0,3):
