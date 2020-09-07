@@ -16,7 +16,20 @@ class DoubleLinkedList:
         if self.head is not None:
             self.head.prev = newNode
         self.head = newNode
+    # insert at given node
 
+    def insert_at_pos(self, posNode, data):
+        if posNode is None:
+            print("this node doesn't exit")
+            return
+        newNode = Node(data)
+        newNode.next = posNode.next
+        newNode.prev = posNode
+        if posNode.next is not None:
+            posNode.next.prev = newNode
+        posNode.next = newNode
+
+    # insert at end
     def insert_at_end(self, data):
         currentNode = self.head
         newNode = Node(data)
@@ -36,6 +49,10 @@ class DoubleLinkedList:
 
 
 dll = DoubleLinkedList()
-dll.insert_at_start("start")
+dll.insert_at_start(10)
+dll.insert_at_start(30)
+dll.insert_at_pos(dll.head, "pos")
 dll.insert_at_end("end")
+
+
 dll.traversal()
