@@ -6,14 +6,24 @@ class Student:
         self.batch_id = batch_id
         self.subjects = []
 
+    def show_details(self):
+        print("Student Details:")
+        print()
+        print(f"Name: {self.name}")
+        print(f"Id: {self.id}")
+        print(f"Age:{self.age}")
+        print(f"Batch ID: {self.batch_id}")
+        print()
+        print("Subject List:")
+        print()
+        [print(f"{subId}:{subName}") for subId, subName in self.subjects]
+
 
 class Subject:
-    def __init__(self):
+    def __init__(self, newStudent):
         self.id = None
         self.name = None
-
-    def create_student(self, name, id, age, batch_id):
-        self.newStudent = Student(name, id, age, batch_id)
+        self.newStudent = newStudent
 
     def add_subject(self, id, name):
         self.id = id
@@ -27,14 +37,17 @@ class Subject:
                 subjectData.remove(value)
 
     def show_all_subjects(self):
-        print(self.newStudent.subjects)
+        print("Subject List:")
+        print()
+        [print(f"{subId}:{subName}")
+         for subId, subName in self.newStudent.subjects]
 
 
-s1 = Subject()
-s1.create_student("Lakshay", "2", "20", "2013")
-s1.add_subject("20", "Social")
-s1.add_subject("21", "English")
-s1.show_all_subjects()
-s1.remove_subject("21")
-s1.add_subject("22", "Maths")
-s1.show_all_subjects()
+student1 = Student("Lakshay", "2", "22", "Ramanujan")
+s1 = Subject(student1)
+s1.add_subject("CS102", "Data Structure")
+s1.add_subject("CS104", "Operating System")
+s1.remove_subject("CS104")
+s1.add_subject("CS105", "Computer Networks")
+# s1.show_all_subjects()
+student1.show_details()
