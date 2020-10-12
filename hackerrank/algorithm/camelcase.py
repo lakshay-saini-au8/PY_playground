@@ -5,3 +5,7 @@ def camelcase(s):
         if i.isupper():
             count += 1
     return count
+
+
+sr = "10"
+print(sr*10+"hello")
