@@ -5,38 +5,56 @@ class Node:
         self.right = None
 
 
-class Order:
-    def inorder(self, root):
-        if root is None:
-            return
-        self.inorder(root.left)
-        print(root.data)
-        self.inorder(root.right)
+def insert(root, pos, data):
 
-    def preorder(self, root):
-        if root is None:
-            return
-        print(root.data)
-        self.preorder(root.left)
-        self.preorder(root.right)
+    temp = pos
+    pos = Node(data)
+    return root
 
-    def postorder(self, root):
-        if root is None:
-            return
-        self.postorder(root.left)
-        self.postorder(root.right)
-        print(root.data)
 
-    def search(self, root, key):
-        if root.data is key:
-            print("Found")
-            return
-        self.search(root.left)
-        self.search(root.right)
+def inorder(root):
 
-    def height(self, root):
-        if root is None:
-            return 0
-        left_tree = self.height(root.left)
-        right_tree = self.height(root.right)
-        return max(left_tree, right_tree) + 1
+    if root is None:
+        return
+    inorder(root.left)
+    print(root.data, end=" ")
+    inorder(root.right)
+
+
+def preorder(root):
+    if root is None:
+        return
+    print(root.data, end=" ")
+    preorder(root.left)
+    preorder(root.right)
+
+
+def postorder(root):
+    if root is None:
+        return
+    postorder(root.left)
+    postorder(root.right)
+    print(root.data, end=" ")
+
+
+def search(root, key):
+    if root.data is key:
+        print("Found")
+        return
+    search(root.left)
+    search(root.right)
+
+
+def height(root):
+    if root is None:
+        return 0
+    left_tree = height(root.left)
+    right_tree = height(root.right)
+    return max(left_tree, right_tree) + 1
+
+
+root = Node(4)
+
+insert(root, root.left, 5)
+insert(root, root.right, 5)
+inorder(root)
