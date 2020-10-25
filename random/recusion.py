@@ -155,14 +155,35 @@ replace orccurence of a with b in a string
 '''
 
 
-def replace(s, a, b):
-    if len(s) == 0:
-        return s
-    small = replace(s[1:], a, b)
-    if s[0] == a:
-        return b + small
-    else:
-        return s[0]+small
+# def replace(s, a, b):
+#     if len(s) == 0:
+#         return s
+#     small = replace(s[1:], a, b)
+#     if s[0] == a:
+#         return b + small
+#     else:
+#         return s[0]+small
 
 
-print(replace('dacdxcd', 'c', 'x'))
+# print(replace('dacdxcd', 'c', 'x'))
+
+
+'''
+binary search
+'''
+
+# def binary_search(arr, s, e, x):
+#     if s > e:
+#         return -1
+#     mid = (s+e)//2
+#     if arr[mid] == x:
+#         return mid
+#     if arr[mid] > x:
+#         return binary_search(arr, s, mid-1, x)
+#     if arr[mid] < x:
+#         return binary_search(arr, mid+1, e, x)
+
+
+# arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# print(binary_search(arr, 0, len(arr), 0))
